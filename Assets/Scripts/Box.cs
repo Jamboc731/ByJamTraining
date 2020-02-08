@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Box : MonoBehaviour, IInteractable
 {
-    IInteractable.EPickedUpState ECurrentState;
+    EPickupStates ECurrentState;
     // Start is called before the first frame update
     void Start()
     {
-        ECurrentState = IInteractable.EPickedUpState.putdown;
+        ECurrentState = EPickupStates.putdown;
     }
 
     // Update is called once per frame
@@ -21,9 +21,9 @@ public class Box : MonoBehaviour, IInteractable
     {
         switch (ECurrentState)
         {
-            case IInteractable.EPickedUpState.putdown:
+            case EPickupStates.putdown:
                 transform.parent = col.transform;
-                ECurrentState = IInteractable.EPickedUpState.pickedup;
+                ECurrentState = EPickupStates.pickedup;
                 break;
         }
     }
@@ -32,9 +32,9 @@ public class Box : MonoBehaviour, IInteractable
     {
         switch (ECurrentState)
         {
-            case IInteractable.EPickedUpState.pickedup:
+            case EPickupStates.pickedup:
                 transform.parent = null;
-                ECurrentState = IInteractable.EPickedUpState.putdown;
+                ECurrentState = EPickupStates.putdown;
                 break;
         }
     }

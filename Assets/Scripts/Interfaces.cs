@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface IInteractable
 {
-    internal enum EPickedUpState { pickedup, putdown };
+    //internal enum EPickedUpState { pickedup, putdown };
     void Interact(Collider col);
     void Deinteract();
 }

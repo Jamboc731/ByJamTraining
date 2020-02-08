@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//public enum EPickupStates
-//{
-//    pickedup,
-//    putdown
-//}
+public enum EPickupStates
+{
+    pickedup,
+    putdown
+}

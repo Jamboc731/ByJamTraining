@@ -61,8 +61,8 @@ public class PlayerrControrller : MonoBehaviour
     {
         if(Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, 3))
         {
-            //IInteractable i = hit.collider.GetComponent<IInteractable>();
-            //if (i != null) i.Interacted();
+            IInteractable i = hit.collider.GetComponent<IInteractable>();
+            if (i != null) i.Interact(GetComponent<Collider>());
         }
 
     }
