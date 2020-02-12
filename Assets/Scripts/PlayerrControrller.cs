@@ -35,20 +35,32 @@ public class PlayerrControrller : MonoBehaviour
 
     private void Update()
     {
+
+        ListenForInputs();
+
+        UpdateMoveVector();
+
+
+        transform.Rotate(transform.up * mX);
+        cam.transform.localEulerAngles = transform.InverseTransformDirection(transform.right) * -mY;
+
+    }
+
+    private void ListenForInputs()
+    {
         xIn = Input.GetAxisRaw("Horizontal");
         zIn = Input.GetAxisRaw("Vertical");
         mY = Mathf.Clamp(mY + Input.GetAxisRaw("Mouse Y") * sensitivity * Time.deltaTime, -85, 85);
         mX = Input.GetAxisRaw("Mouse X") * sensitivity * Time.deltaTime;
 
+        if (Input.GetMouseButton(0)) Interact();
+    }
+
+    private void UpdateMoveVector()
+    {
         moveDir.x = xIn;
         moveDir.z = zIn;
         moveDir = transform.TransformDirection(moveDir).normalized * speed * Time.deltaTime;
-
-        if (Input.GetMouseButton(0)) Interact();
-
-        transform.Rotate(transform.up * mX);
-        cam.transform.localEulerAngles = transform.InverseTransformDirection(transform.right) * -mY;
-
     }
 
     private void FixedUpdate()
