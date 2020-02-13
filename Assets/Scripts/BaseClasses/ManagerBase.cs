@@ -8,6 +8,13 @@ using UnityEngine;
 public abstract class ManagerBase : MonoBehaviour
 {
 
+    #region Private Voids
+
+
+    #endregion
+
+    #region Public Voids
+
     /// <summary>
     /// The initialise function for managers
     /// </summary>
@@ -15,5 +22,18 @@ public abstract class ManagerBase : MonoBehaviour
     {
         Debug.Log("initialising: " + GetType().ToString());
     }
+
+    #endregion
+
+    #region Private Returns
+
+
+    #endregion
+
+    #region Public Returns
+
+
+    #endregion
+
 
 }

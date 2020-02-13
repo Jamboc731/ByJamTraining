@@ -49,5 +49,24 @@ public class InputManager : ManagerBase
 
     #endregion
 
+    #region Private Voids
+
+
+    #endregion
+
+    #region Public Voids
+
+
+    #endregion
+
+    #region Private Returns
+
+
+    #endregion
+
+    #region Public Returns
+
+
+    #endregion
 
 }

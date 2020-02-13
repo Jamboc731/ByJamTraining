@@ -1,8 +1,8 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ControllerBase : MonoBehaviour
+public class #SCRIPTNAME# : MonoBehaviour
 {
 
     #region Serialised
@@ -10,7 +10,7 @@ public class ControllerBase : MonoBehaviour
 
     #endregion
 
-    #region Privates
+    #region Private
 
 
     #endregion
@@ -20,23 +20,13 @@ public class ControllerBase : MonoBehaviour
 
     #endregion
 
-    protected InputManager im;
-    protected Vector3 v3_moveVector;
-
     #region Unity Standards
-    
+
 
     #endregion
 
     #region Private Voids
 
-    /// <summary>
-    /// Initialisation function for all controllers
-    /// </summary>
-    public virtual void Init()
-    {
-        Debug.Log("initialising: " + GetType().ToString());
-    }
 
     #endregion
 
@@ -54,7 +44,5 @@ public class ControllerBase : MonoBehaviour
 
 
     #endregion
-
-    
 
 }
