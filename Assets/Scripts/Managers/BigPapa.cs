@@ -23,7 +23,7 @@ public class BigPapa : MonoBehaviour
     /// <summary>
     /// The serialised string array of managers to add to BigP
     /// </summary>
-    [SerializeField] private string[] sA_managersToAdd;
+    [SerializeField] private string[] sA_directorsToAdd;
 
     #endregion
 
@@ -32,7 +32,7 @@ public class BigPapa : MonoBehaviour
     /// <summary>
     /// The list of all the managers attached to bp
     /// </summary>
-    Dictionary<string, ManagerBase> s_mbD_managers = new Dictionary<string, ManagerBase>();
+    Dictionary<string, Director> D_directors = new Dictionary<string, Director>();
 
     #endregion
 
@@ -81,8 +81,8 @@ public class BigPapa : MonoBehaviour
     private void InitialiseManagers()
     {
 
-        foreach (ManagerBase m in s_mbD_managers.Values)
-            m.Init();
+        foreach (Director d in D_directors.Values)
+            d.Init();
 
     }
 
@@ -99,7 +99,7 @@ public class BigPapa : MonoBehaviour
     /// </summary>
     private void AddManagers()
     {
-        foreach (string m in sA_managersToAdd)
+        foreach (string m in sA_directorsToAdd)
             AddManager(m);
     }
 
@@ -112,7 +112,7 @@ public class BigPapa : MonoBehaviour
     private void AddManager(string T)
     {
         gameObject.AddComponent(Type.GetType(T));
-        s_mbD_managers.Add(T, (ManagerBase)GetComponent(T));
+        D_directors.Add(T, (Director)GetComponent(T));
     }
 
     #endregion
@@ -138,9 +138,19 @@ public class BigPapa : MonoBehaviour
     /// <returns>
     /// a manager
     /// </returns>
-    public ManagerBase GetManager(string _s_manToGet)
+    public Director GetDirector(string _s_manToGet)
     {
-        return s_mbD_managers[_s_manToGet];
+        return D_directors[_s_manToGet];
+    }
+
+    public ManagerBase GetManager(string _s_key)
+    {
+        return (ManagerBase)D_directors[_s_key].GetManager();
+    }
+
+    public ManagerBase GetManager(string _s_key, string _s_managerKey)
+    {
+        return D_directors[_s_key].GetManager(_s_managerKey);
     }
 
     #endregion
