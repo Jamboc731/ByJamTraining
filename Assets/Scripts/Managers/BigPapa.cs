@@ -25,6 +25,8 @@ public class BigPapa : MonoBehaviour
     /// </summary>
     [SerializeField] private string[] sA_managersToAdd;
 
+    [SerializeField] ControllerBase controller;
+    [SerializeField] EntityBase entity;
     #endregion
 
     #region Private
@@ -32,7 +34,7 @@ public class BigPapa : MonoBehaviour
     /// <summary>
     /// The list of all the managers attached to bp
     /// </summary>
-    Dictionary<string, ManagerBase> s_mbD_managers = new Dictionary<string, ManagerBase>();
+    Dictionary<string, ManagerBase> D_managers = new Dictionary<string, ManagerBase>();
 
     #endregion
 
@@ -51,6 +53,8 @@ public class BigPapa : MonoBehaviour
     private void Start()
     {
         Init();
+        entity.Init();
+        controller.Init((InputManager)D_managers["PlayerInputs"], (MoveableEntity)entity);
     }
 
     #endregion
@@ -81,7 +85,7 @@ public class BigPapa : MonoBehaviour
     private void InitialiseManagers()
     {
 
-        foreach (ManagerBase m in s_mbD_managers.Values)
+        foreach (ManagerBase m in D_managers.Values)
             m.Init();
 
     }
@@ -112,7 +116,7 @@ public class BigPapa : MonoBehaviour
     private void AddManager(string T)
     {
         gameObject.AddComponent(Type.GetType(T));
-        s_mbD_managers.Add(T, (ManagerBase)GetComponent(T));
+        D_managers.Add(T, (ManagerBase)GetComponent(T));
     }
 
     #endregion
@@ -140,7 +144,7 @@ public class BigPapa : MonoBehaviour
     /// </returns>
     public ManagerBase GetManager(string _s_manToGet)
     {
-        return s_mbD_managers[_s_manToGet];
+        return D_managers[_s_manToGet];
     }
 
     #endregion

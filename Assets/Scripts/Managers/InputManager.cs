@@ -44,8 +44,8 @@ public class InputManager : ManagerBase
 
     #region Get/Set
 
-    public Vector3 GS_v3_MoveVector { get { return v3_moveVector; } private set { v3_moveVector = value; } }
-    public Vector3 GS_v3_CameraVector { get { return v3_cameraVector; } private set { v3_cameraVector = value; } }
+    public Vector3 GS_v3_MoveVector { get { return v3_moveVector; } protected set { v3_moveVector = value; } }
+    public Vector3 GS_v3_CameraVector { get { return v3_cameraVector; } protected set { v3_cameraVector = value; } }
 
     #endregion
 

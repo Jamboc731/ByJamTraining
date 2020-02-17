@@ -8,6 +8,7 @@ public class PlayerInputs : InputManager
     private void Update()
     {
         GetInputs();
+        SetVectors();
     }
 
     private void GetInputs()
